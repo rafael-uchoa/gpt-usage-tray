@@ -1,0 +1,24 @@
+# Build outputs and local test artifacts
+/bin/
+/tests/FakeCodex.exe
+/tests/mode.txt
+/tests/results.txt
+__pycache__/
+*.py[cod]
+
+# Credentials, local configuration and runtime diagnostics
+.env
+.env.*
+!.env.example
+auth.json
+status.json
+smoke-test.json
+self-test.txt
+codexbar-startup-backup.txt
+*.log
+
+# Editor and OS files
+.vs/
+.vscode/
+Thumbs.db
+Desktop.ini

@@ -16,7 +16,7 @@ Updates every 60 seconds, retries failures with a 15-second to 5-minute backoff,
 
 Requires Windows x64 with .NET Framework 4.8 and the official Codex CLI installed. The CLI must be discoverable in a standard npm location or on PATH; alternatively, set `GPT_USAGE_CODEX_EXE` to its native executable path.
 
-Run `powershell -ExecutionPolicy Bypass -File .\install.ps1`. No administrator rights, SDK download, or additional UI runtime are needed. It builds with the Windows .NET Framework compiler, installs to `%LOCALAPPDATA%\Programs\GPTUsageTray`, creates desktop and Start menu shortcuts, and enables **Start with Windows**. The installer disables CodexBar's startup entry and keeps its previous value in `%LOCALAPPDATA%\GPTUsageTray\codexbar-startup-backup.txt`; CodexBar stays installed.
+Run `powershell -ExecutionPolicy Bypass -File .\install.ps1`. No administrator rights, SDK download, or additional UI runtime are needed. It builds with the Windows .NET Framework compiler, installs to `%LOCALAPPDATA%\Programs\GPTUsageTray`, creates a Start menu shortcut, and enables **Start with Windows**. The installer disables CodexBar's startup entry and keeps its previous value in `%LOCALAPPDATA%\GPTUsageTray\codexbar-startup-backup.txt`; CodexBar stays installed.
 
 If Windows places the number in the hidden-icons flyout, drag it beside the clock, or use **Windows tray visibility settings** in the menu.
 

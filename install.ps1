@@ -20,14 +20,13 @@ if ($taskOldStartup) {
     Remove-ItemProperty -Path $taskRunKey -Name 'CodexBar'
 }
 $taskShell = New-Object -ComObject WScript.Shell
-foreach ($taskLinkPath in @((Join-Path ([Environment]::GetFolderPath('Desktop')) 'GPT Usage Tray.lnk'), (Join-Path ([Environment]::GetFolderPath('Programs')) 'GPT Usage Tray.lnk'))) {
-    $taskLink = $taskShell.CreateShortcut($taskLinkPath)
-    $taskLink.TargetPath = $taskTarget
-    $taskLink.WorkingDirectory = $taskInstall
-    $taskLink.Description = 'Remaining Codex usage in the Windows system tray'
-    $taskLink.Save()
-}
-Start-Process -FilePath $taskTarget -WindowStyle Hidden
+$taskLinkPath = Join-Path ([Environment]::GetFolderPath('Programs')) 'GPT Usage Tray.lnk'
+$taskLink = $taskShell.CreateShortcut($taskLinkPath)
+$taskLink.TargetPath = $taskTarget
+$taskLink.WorkingDirectory = $taskInstall
+$taskLink.Description = 'Remaining Codex usage in the Windows system tray'
+$taskLink.Save()
+Start-Process -FilePath $taskTarget -WorkingDirectory $taskInstall -WindowStyle Hidden
 # Ask Windows to keep this application's icon in the visible tray.
 # Only touch the entry whose executable exactly matches this installation.
 $taskDeadline = (Get-Date).AddSeconds(5)
